@@ -16,6 +16,7 @@ const path = require("path");
 const _dirname = path.resolve(); 
 app.use(cors({
     origin: 'http://localhost:5173',
+    'https://leetcode-1pyb.onrender.com',
     credentials: true 
 }))
 
