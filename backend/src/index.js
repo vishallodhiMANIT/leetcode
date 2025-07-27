@@ -15,7 +15,7 @@ const path = require("path");
 // console.log("Hello")
 const _dirname = path.resolve(); 
 app.use(cors({
-    origin: '*',
+    origin: 'http://localhost:5173',
     credentials: true 
 }))
 
