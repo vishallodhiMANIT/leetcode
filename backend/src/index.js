@@ -14,11 +14,23 @@ const cors = require('cors')
 const path = require("path");
 // console.log("Hello")
 const _dirname = path.resolve(); 
+//changed cors setting
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://leetcode-1pyb.onrender.com'
+];
+
 app.use(cors({
-    origin: 'http://localhost:5173',
-    'https://leetcode-1pyb.onrender.com',
-    credentials: true 
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 
 app.use(express.json());
 app.use(cookieParser());
